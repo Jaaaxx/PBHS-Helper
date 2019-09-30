@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PBHS Helper</string>
+    <string name="logo_descriptor">PBHS Logo</string>
+    <string name="district_school">Broward Schools</string>
+    <string name="school_name">Pompano Beach High School</string>
+    <string name="grades">Grades</string>
+    <string name="login_label">Login to Broward Schools</string>
+    <string name="username_hint">Username (06########)</string>
+    <string name="password_hint">Password (P##/##/####)</string>
+    <string name="submit">Submit</string>
+    <string name="calendar">Calendar</string>
+    <string name="cal_descriptor">Calendar Image</string>
+    <string name="counselor">Counselor</string>
+    <string name="title_activity_grades">Grades</string>
+    <string name="title_activity_login">Login</string>
+    <string name="error_login">Username or Password Was Incorrect</string>
+    <string name="title_activity_calender">PBHS Calender</string>
+</resources>
