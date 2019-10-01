@@ -13,7 +13,6 @@ class LauncherActivity: AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         val settings = getSharedPreferences("Login", 0)
-        // settings.edit().clear().apply()
         val username : String? = settings.getString("user", "")
         val password : String? = settings.getString("pass", "")
         if (username != "" && password != "" && username != null && password != null) {

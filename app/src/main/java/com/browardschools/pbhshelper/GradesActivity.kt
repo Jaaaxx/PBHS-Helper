@@ -1,8 +1,10 @@
 package com.browardschools.pbhshelper
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log.d
 import android.view.View
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
@@ -29,28 +31,21 @@ class GradesActivity : AppCompatActivity() {
         val username = settings.getString("user", "")
         val password = settings.getString("pass", "")
         AsyncTask.execute {
-            val gradesJSON = JSONArray(URL("https://pinnacle-scraper.herokuapp.com/api?un=${username}&pw=${password}").readText())
-
-            val allCourses = ArrayList<JSONObject>()
-            for (i in 0 until gradesJSON.length()) {
-                val course = gradesJSON.getJSONObject(i)
-                allCourses.add(course)
+            val gradesText = URL("https://pinnacle-scraper.herokuapp.com/api?un=${username}&pw=${password}").readText()
+            if (gradesText == "Username or Password was Incorrect") {
+                d("status", "username or password was incorrect")
+                getSharedPreferences("Login", 0).edit().clear().apply()
+                startActivity(Intent(this, LoginActivity::class.java))
             }
-
-            allCourses.forEach {
-
+            else {
+                val gradesJSON = JSONArray(gradesText)
+                val allCourses = ArrayList<JSONObject>()
+                for (i in 0 until gradesJSON.length())
+                    allCourses.add(gradesJSON.getJSONObject(i))
+                for (i in allCourses) {
+                    d("course", i.toString())
+                }
             }
-
-
-
-
-
-
-
-
-
-
-
             runOnUiThread {
                 findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
             }

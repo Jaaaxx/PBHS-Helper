@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         calender.setOnClickListener {
             startActivity(Intent(this, CalenderActivity::class.java))
         }
+        logout.setOnClickListener {
+            getSharedPreferences("Login", 0).edit().clear().apply()
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
         counselor.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://bcps.browardschools.com/VirtualCounselor/"))
             startActivity(browserIntent)
