@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import java.lang.Exception
+import java.net.MalformedURLException
 import java.net.URL
 
 class LauncherActivity: AppCompatActivity() {
@@ -18,9 +20,15 @@ class LauncherActivity: AppCompatActivity() {
         if (username != "" && password != "" && username != null && password != null) {
             startActivity(Intent(this, MainActivity::class.java))
             AsyncTask.execute {
-                val verifyJSON : String = URL("https://pinnacle-scraper.herokuapp.com/verify?un=${username}&pw=${password}").readText()
-                if(verifyJSON != "True") {
-                    startActivity(Intent(this, LoginActivity::class.java))
+                try {
+                    val verifyJSON: String =
+                        URL("https://pinnacle-scraper.herokuapp.com/verify?un=${username}&pw=${password}").readText()
+                    if (verifyJSON != "True") {
+                        startActivity(Intent(this, LoginActivity::class.java))
+                    }
+                }
+                catch (e: MalformedURLException) {
+                    startActivity(Intent(this, MainActivity::class.java))
                 }
             }
         } else

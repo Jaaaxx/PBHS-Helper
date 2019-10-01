@@ -2,7 +2,7 @@ package com.browardschools.pbhshelper
 
 
 // 0 is blue, 1 is gold
-val datesDays = mapOf( "09/30" to 0,
+val datesDays = mapOf(
     "10/01" to 1, "10/02" to 0, "10/03" to 1, "10/07" to 0, "10/08" to 1, "10/10" to 0, "10/14" to 1, "10/15" to 0,
     "10/16" to 1, "10/17" to 0, "10/21" to 1, "10/22" to 0, "10/23" to 1, "10/24" to 0, "10/28" to 1, "10/29" to 0,
     "10/30" to 1, "10/31" to 0, "11/04" to 1, "11/05" to 0, "11/06" to 1, "11/07" to 0, "11/12" to 1, "11/13" to 0,

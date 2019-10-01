@@ -10,12 +10,15 @@ import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_grades.*
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 import org.json.JSONObject
 import org.json.JSONArray
+import java.lang.Exception
+import java.net.MalformedURLException
 
 
 class GradesActivity : AppCompatActivity() {
@@ -31,20 +34,26 @@ class GradesActivity : AppCompatActivity() {
         val username = settings.getString("user", "")
         val password = settings.getString("pass", "")
         AsyncTask.execute {
-            val gradesText = URL("https://pinnacle-scraper.herokuapp.com/api?un=${username}&pw=${password}").readText()
-            if (gradesText == "Username or Password was Incorrect") {
-                d("status", "username or password was incorrect")
-                getSharedPreferences("Login", 0).edit().clear().apply()
-                startActivity(Intent(this, LoginActivity::class.java))
-            }
-            else {
-                val gradesJSON = JSONArray(gradesText)
-                val allCourses = ArrayList<JSONObject>()
-                for (i in 0 until gradesJSON.length())
-                    allCourses.add(gradesJSON.getJSONObject(i))
-                for (i in allCourses) {
-                    d("course", i.toString())
+            try {
+                val gradesText =
+                    URL("https://pinnacle-scraper.herokuapp.com/api?un=$username&pw=$password").readText()
+                if (gradesText == "Username or Password was Incorrect") {
+                    d("status", "username or password was incorrect")
+                    getSharedPreferences("Login", 0).edit().clear().apply()
+                    startActivity(Intent(this, LoginActivity::class.java))
+                } else {
+                    val gradesJSON = JSONArray(gradesText)
+                    val allCourses = ArrayList<JSONObject>()
+                    for (i in 0 until gradesJSON.length())
+                        allCourses.add(gradesJSON.getJSONObject(i))
+                    for (i in allCourses) {
+                        d("course", i.toString())
+                    }
                 }
+            }
+            catch (e: MalformedURLException) {
+                val mySnackbar = Snackbar.make(findViewById(R.id.content_grades), "Try again later!", Snackbar.LENGTH_SHORT)
+                mySnackbar.show()
             }
             runOnUiThread {
                 findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
