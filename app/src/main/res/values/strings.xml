@@ -16,4 +16,5 @@
     <string name="sign_out"><u>Sign Out</u></string>
     <string name="error_login">Username or Password Was Incorrect</string>
     <string name="title_activity_calender">PBHS Calender</string>
+    <string name="title_activity_assignments">Class Assignments</string>
 </resources>

@@ -2,19 +2,18 @@ package com.browardschools.pbhshelper
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
-import android.util.Log.d
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.FileNotFoundException
+import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.net.Uri
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("MM/dd")
         val date: String = formatter.format(Date())
         val mLayout = findViewById<ConstraintLayout>(R.id.main_layout)
+        val settings = getSharedPreferences("Login", 0)
+        val username = settings.getString("user", "")
+        val password = settings.getString("pass", "")
 
         when (datesDays[date]) {
             1 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.straw, null))
@@ -46,6 +48,21 @@ class MainActivity : AppCompatActivity() {
         counselor.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://bcps.browardschools.com/VirtualCounselor/"))
             startActivity(browserIntent)
+        }
+
+        AsyncTask.execute {
+            try {
+                val verifyJSON: String =
+                    URL("https://pinnacle-scraper.herokuapp.com/verify?un=${username}&pw=${password}").readText()
+                if (verifyJSON != "True")
+                    startActivity(Intent(this, LoginActivity::class.java))
+            } catch (e: FileNotFoundException) {
+                Snackbar.make(
+                    findViewById(android.R.id.content),
+                    "Network error. Try again later!",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
         }
     }
 }

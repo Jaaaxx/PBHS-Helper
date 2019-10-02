@@ -17,6 +17,15 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
+            android:name=".AssignmentsActivity"
+            android:label="@string/title_activity_assignments"
+            android:parentActivityName=".GradesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.browardschools.pbhshelper.GradesActivity" />
+        </activity>
+        <activity
             android:name=".CalenderActivity"
             android:label="@string/title_activity_calender"
             android:parentActivityName=".MainActivity"
