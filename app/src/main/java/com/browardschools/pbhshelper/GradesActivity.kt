@@ -159,6 +159,7 @@ class GradesActivity : AppCompatActivity() {
                     )
                     btnChild.text = i.getString("Grade")
                     btnChild.textSize = 30.0f
+                    // TODO Same thing as this screen, but for individual class assignments
                     btnChild.setOnClickListener {
                         startActivity(Intent(this, AssignmentsActivity::class.java))
                     }
