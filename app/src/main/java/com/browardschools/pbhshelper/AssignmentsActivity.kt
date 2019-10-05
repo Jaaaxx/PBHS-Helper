@@ -99,6 +99,30 @@ class AssignmentsActivity : AppCompatActivity() {
                         horParent.addView(valTV)
                         runOnUiThread { vertASParent.addView(horParent) }
                     }
+                } else {
+                    val horParent = LinearLayout(this)
+                    val lp = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        2f
+                    )
+                    lp.setMargins(dp(10), dp(10), dp(10), dp(0))
+                    horParent.layoutParams = lp
+                    horParent.orientation = LinearLayout.HORIZONTAL
+                    val txtViewChild = TextView(this)
+                    txtViewChild.layoutParams = LinearLayout.LayoutParams(
+                        dp(0),
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        2f
+                    )
+                    txtViewChild.typeface =
+                        Typeface.create("sans-serif-condensed-medium", Typeface.NORMAL)
+                    txtViewChild.gravity = Gravity.CENTER_VERTICAL
+                    txtViewChild.text = getString(R.string.no_grades_assigned)
+                    txtViewChild.textSize = 20.0f
+
+                    horParent.addView(txtViewChild)
+                    runOnUiThread { vertASParent.addView(horParent) }
                 }
             }
         } else {
