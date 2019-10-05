@@ -111,7 +111,11 @@ class GradesActivity : AppCompatActivity() {
                             dp(120),
                             LinearLayout.LayoutParams.MATCH_PARENT
                         )
-                        btnChild.text = i.getString("Grade")
+                        if (i.getString("Grade") == "") {
+                            btnChild.text = getString(R.string.null_val)
+                        } else {
+                            btnChild.text = i.getString("Grade")
+                        }
                         btnChild.textSize = 30.0f
                         btnChild.setOnClickListener {
                             startActivity(

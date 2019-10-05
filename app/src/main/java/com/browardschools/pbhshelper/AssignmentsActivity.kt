@@ -89,7 +89,7 @@ class AssignmentsActivity : AppCompatActivity() {
                                     "Max"
                                 ).toFloat() * 100).toInt()}%"
                         } catch (e: NumberFormatException) {
-                            valTV.text = getString(R.string.null_assignment)
+                            valTV.text = getString(R.string.null_val)
                         }
                         valTV.gravity = Gravity.CENTER
                         valTV.background =

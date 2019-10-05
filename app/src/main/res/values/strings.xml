@@ -17,6 +17,6 @@
     <string name="error_login">Username or Password Was Incorrect</string>
     <string name="title_activity_calender">PBHS Calender</string>
     <string name="title_activity_assignments">Class Assignments</string>
-    <string name="null_assignment" />
+    <string name="null_val" />
     <string name="no_grades_assigned">No assignments have been assigned.</string>
 </resources>
