@@ -2,6 +2,7 @@ package com.browardschools.pbhshelper
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log.d
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_assignments.*
@@ -94,6 +96,37 @@ class AssignmentsActivity : AppCompatActivity() {
                         valTV.background =
                             resources.getDrawable(android.R.drawable.editbox_dropdown_light_frame)
                         valTV.textSize = 30.0f
+                        try {
+                            when {
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 90 || assignment.getString(
+                                    "Max"
+                                ).toInt() == 0 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.americangreen
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 80 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.arylideyellow
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 70 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.amurcorktree
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                else -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.auburn
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                            }
+                        } catch (e: NumberFormatException) {
+                        }
                         horParent.addView(txtViewChild)
                         horParent.addView(valTV)
                         runOnUiThread { vertASParent.addView(horParent) }

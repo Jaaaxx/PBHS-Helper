@@ -118,34 +118,32 @@ class GradesActivity : AppCompatActivity() {
                             btnChild.text = getString(R.string.null_val)
                         } else {
                             btnChild.text = """${i.getString("Grade")}%"""
-                            if (i.getString("Grade").toInt() >= 90)
-                                btnChild.background.setColorFilter(
+                            when {
+                                i.getString("Grade").toInt() >= 90 -> btnChild.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.americangreen
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                            else if (i.getString("Grade").toInt() >= 80)
-                                btnChild.background.setColorFilter(
-                                    ContextCompat.getColor(
-                                        this,
-                                        R.color.amurcorktree
-                                    ), PorterDuff.Mode.MULTIPLY
-                                )
-                            else if (i.getString("Grade").toInt() >= 70)
-                                btnChild.background.setColorFilter(
+                                i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.arylideyellow
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                            else
-                                btnChild.background.setColorFilter(
+                                i.getString("Grade").toInt() >= 70 -> btnChild.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.amurcorktree
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                else -> btnChild.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.auburn
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
+                            }
                         }
                         btnChild.textSize = 30.0f
                         btnChild.setOnClickListener {
