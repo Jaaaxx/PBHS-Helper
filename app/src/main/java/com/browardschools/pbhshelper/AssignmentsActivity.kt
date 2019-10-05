@@ -41,7 +41,6 @@ class AssignmentsActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {
         }
         if (sessionId != "FALSE") {
-            d("It works", "IT WORKS")
             val gradesText = getSharedPreferences("GradesSettings", 0).getString("rawGrades", "")
             if (gradesText != "" && gradesText != null) {
                 runOnUiThread { vertASParent.removeAllViews() }
@@ -174,5 +173,15 @@ class AssignmentsActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(
+            this@AssignmentsActivity,
+            GradesActivity::class.java
+        ).putExtra("Referrer", "AssignmentsActivity")
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finish()
     }
 }

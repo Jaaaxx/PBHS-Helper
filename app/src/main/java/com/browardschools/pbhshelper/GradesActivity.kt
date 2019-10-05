@@ -2,6 +2,7 @@ package com.browardschools.pbhshelper
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.graphics.Typeface
 import android.os.AsyncTask
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_grades.*
@@ -26,6 +28,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class GradesActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grades)
@@ -114,7 +117,35 @@ class GradesActivity : AppCompatActivity() {
                         if (i.getString("Grade") == "") {
                             btnChild.text = getString(R.string.null_val)
                         } else {
-                            btnChild.text = i.getString("Grade")
+                            btnChild.text = """${i.getString("Grade")}%"""
+                            if (i.getString("Grade").toInt() >= 90)
+                                btnChild.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.americangreen
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                            else if (i.getString("Grade").toInt() >= 80)
+                                btnChild.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.amurcorktree
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                            else if (i.getString("Grade").toInt() >= 70)
+                                btnChild.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.arylideyellow
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                            else
+                                btnChild.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.auburn
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
                         }
                         btnChild.textSize = 30.0f
                         btnChild.setOnClickListener {

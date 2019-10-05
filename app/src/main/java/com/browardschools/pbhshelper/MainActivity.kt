@@ -15,6 +15,7 @@ import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
 
+
 class MainActivity : AppCompatActivity() {
 
 
@@ -65,4 +66,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onBackPressed() {}
 }
