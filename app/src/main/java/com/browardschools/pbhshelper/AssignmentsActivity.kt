@@ -40,14 +40,13 @@ class AssignmentsActivity : AppCompatActivity() {
         var sessionId = "FALSE"
         try {
             sessionId = intent.getStringExtra("CourseRefer")!!
-        } catch (e: NullPointerException) {
-        }
+        } catch (e: Exception) {}
         if (sessionId != "FALSE") {
             val gradesText = getSharedPreferences("GradesSettings", 0).getString("rawGrades", "")
             if (gradesText != "" && gradesText != null) {
                 runOnUiThread { vertASParent.removeAllViews() }
                 val gradesJSON = JSONArray(gradesText)
-                var assignmentsJSON: JSONArray = JSONArray()
+                var assignmentsJSON = JSONArray()
                 for (i in 0 until gradesJSON.length()) {
                     if (gradesJSON.getJSONObject(i).getString("Course") == sessionId) {
                         assignmentsJSON = gradesJSON.getJSONObject(i).getJSONArray("Assignments")

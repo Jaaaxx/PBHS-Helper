@@ -66,7 +66,7 @@ class GradesActivity : AppCompatActivity() {
                         getSharedPreferences("GradesSettings", 0).edit()
                             .putString("rawGrades", gradesText).apply()
                     }
-                } catch (e: FileNotFoundException) {
+                } catch (e: Exception) {
                     Snackbar.make(
                         findViewById(android.R.id.content),
                         "Network error. Try again later!",

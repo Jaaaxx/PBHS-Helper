@@ -46,7 +46,7 @@ class LoginActivity : AppCompatActivity() {
                         "Username or Password was Incorrect",
                         Snackbar.LENGTH_SHORT
                     ).show()
-            } catch (e: FileNotFoundException) {
+            } catch (e: Exception) {
                 startActivity(Intent(this, MainActivity::class.java))
             }
         }

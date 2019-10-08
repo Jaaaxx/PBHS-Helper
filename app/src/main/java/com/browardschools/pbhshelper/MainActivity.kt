@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                     URL("https://pinnacle-scraper.herokuapp.com/verify?un=${username}&pw=${password}").readText()
                 if (verifyJSON != "True")
                     startActivity(Intent(this, LoginActivity::class.java))
-            } catch (e: FileNotFoundException) {
+            } catch (e: Exception) {
                 Snackbar.make(
                     findViewById(android.R.id.content),
                     "Network error. Try again later!",
