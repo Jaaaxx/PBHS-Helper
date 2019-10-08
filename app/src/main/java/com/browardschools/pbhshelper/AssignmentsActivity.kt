@@ -88,6 +88,9 @@ class AssignmentsActivity : AppCompatActivity() {
                                 "${(assignment.getString("Points").toFloat() / assignment.getString(
                                     "Max"
                                 ).toFloat() * 100).toInt()}%"
+                            if (assignment.getString("Max").toInt() == 0) {
+                                valTV.text = "100%"
+                            }
                         } catch (e: NumberFormatException) {
                             valTV.text = getString(R.string.null_val)
                         }
