@@ -106,13 +106,13 @@ class AssignmentsActivity : AppCompatActivity() {
                                         R.color.americangreen
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 80 -> valTV.background.setColorFilter(
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 85 -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.arylideyellow
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 70 -> valTV.background.setColorFilter(
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 80 -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.amurcorktree

@@ -125,13 +125,13 @@ class GradesActivity : AppCompatActivity() {
                                         R.color.americangreen
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                                i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
+                                i.getString("Grade").toInt() >= 85 -> btnChild.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.arylideyellow
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                                i.getString("Grade").toInt() >= 70 -> btnChild.background.setColorFilter(
+                                i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
                                         R.color.amurcorktree

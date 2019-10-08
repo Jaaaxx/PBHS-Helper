@@ -47,7 +47,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         counselor.setOnClickListener {
-            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://bcps.browardschools.com/VirtualCounselor/"))
+            val browserIntent = Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://bcps.browardschools.com/VirtualCounselor/")
+            )
             startActivity(browserIntent)
         }
 
