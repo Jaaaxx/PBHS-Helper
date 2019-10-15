@@ -17,8 +17,18 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
+            android:name=".TeacherActivity"
+            android:label="@string/teacher"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.browardschools.pbhshelper.MainActivity" />
+        </activity>
+        <activity
             android:name=".AssignmentsActivity"
             android:label="@string/title_activity_assignments"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".GradesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -37,6 +47,7 @@
         <activity
             android:name=".GradesActivity"
             android:label="@string/title_activity_grades"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

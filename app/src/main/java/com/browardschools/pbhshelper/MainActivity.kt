@@ -10,7 +10,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
-import java.io.FileNotFoundException
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,8 +35,21 @@ class MainActivity : AppCompatActivity() {
             0 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.water, null))
             else -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.shiracha, null))
         }
-        grades.setOnClickListener {
-            startActivity(Intent(this, GradesActivity::class.java))
+
+        interchange.text = getString(R.string.grades)
+        interchange.setOnClickListener { startActivity(Intent(this, GradesActivity::class.java)) }
+        if (username != null) {
+            if (username[0].toLowerCase() == "p".toCharArray()[0]) {
+                interchange.text = getString(R.string.teacher)
+                interchange.setOnClickListener {
+                    startActivity(
+                        Intent(
+                            this,
+                            TeacherActivity::class.java
+                        )
+                    )
+                }
+            }
         }
         calender.setOnClickListener {
             startActivity(Intent(this, CalenderActivity::class.java))
