@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.activity_grades.*
 import kotlinx.android.synthetic.main.content_grades.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.io.FileNotFoundException
 import java.net.URL
 import java.text.SimpleDateFormat
 import java.util.*
@@ -86,78 +85,76 @@ class GradesActivity : AppCompatActivity() {
                 for (i in 0 until gradesJSON.length())
                     allCourses.add(gradesJSON.getJSONObject(i))
                 for (i in allCourses) {
-                    if (i.getString("Quarter") == "Quarter 1") {
-                        val horParent = LinearLayout(this)
-                        val lp = LinearLayout.LayoutParams(
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            dp(85),
-                            2f
-                        )
-                        lp.setMargins(dp(10), dp(0), dp(0), dp(0))
-                        horParent.layoutParams = lp
-                        horParent.orientation = LinearLayout.HORIZONTAL
+                    val horParent = LinearLayout(this)
+                    val lp = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        dp(85),
+                        2f
+                    )
+                    lp.setMargins(dp(10), dp(0), dp(0), dp(0))
+                    horParent.layoutParams = lp
+                    horParent.orientation = LinearLayout.HORIZONTAL
 
-                        val txtViewChild = TextView(this)
-                        txtViewChild.layoutParams = LinearLayout.LayoutParams(
-                            dp(0),
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            2f
-                        )
-                        txtViewChild.typeface =
-                            Typeface.create("sans-serif-condensed-medium", Typeface.NORMAL)
-                        txtViewChild.gravity = Gravity.CENTER_VERTICAL
-                        txtViewChild.text = i.getString("Course")
-                        txtViewChild.textSize = 30.0f
+                    val txtViewChild = TextView(this)
+                    txtViewChild.layoutParams = LinearLayout.LayoutParams(
+                        dp(0),
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        2f
+                    )
+                    txtViewChild.typeface =
+                        Typeface.create("sans-serif-condensed-medium", Typeface.NORMAL)
+                    txtViewChild.gravity = Gravity.CENTER_VERTICAL
+                    txtViewChild.text = i.getString("Course")
+                    txtViewChild.textSize = 30.0f
 
-                        val btnChild = Button(this)
-                        btnChild.layoutParams = LinearLayout.LayoutParams(
-                            dp(120),
-                            LinearLayout.LayoutParams.MATCH_PARENT
-                        )
-                        if (i.getString("Grade") == "") {
-                            btnChild.text = getString(R.string.null_val)
-                        } else {
-                            btnChild.text = """${i.getString("Grade")}%"""
-                            when {
-                                i.getString("Grade").toInt() >= 90 -> btnChild.background.setColorFilter(
-                                    ContextCompat.getColor(
-                                        this,
-                                        R.color.americangreen
-                                    ), PorterDuff.Mode.MULTIPLY
-                                )
-                                i.getString("Grade").toInt() >= 85 -> btnChild.background.setColorFilter(
-                                    ContextCompat.getColor(
-                                        this,
-                                        R.color.arylideyellow
-                                    ), PorterDuff.Mode.MULTIPLY
-                                )
-                                i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
-                                    ContextCompat.getColor(
-                                        this,
-                                        R.color.amurcorktree
-                                    ), PorterDuff.Mode.MULTIPLY
-                                )
-                                else -> btnChild.background.setColorFilter(
-                                    ContextCompat.getColor(
-                                        this,
-                                        R.color.auburn
-                                    ), PorterDuff.Mode.MULTIPLY
-                                )
-                            }
-                        }
-                        btnChild.textSize = 30.0f
-                        btnChild.setOnClickListener {
-                            startActivity(
-                                Intent(
+                    val btnChild = Button(this)
+                    btnChild.layoutParams = LinearLayout.LayoutParams(
+                        dp(120),
+                        LinearLayout.LayoutParams.MATCH_PARENT
+                    )
+                    if (i.getString("Grade") == "") {
+                        btnChild.text = getString(R.string.null_val)
+                    } else {
+                        btnChild.text = """${i.getString("Grade")}%"""
+                        when {
+                            i.getString("Grade").toInt() >= 90 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
                                     this,
-                                    AssignmentsActivity::class.java
-                                ).putExtra("CourseRefer", i.getString("Course"))
+                                    R.color.americangreen
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 85 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.arylideyellow
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.amurcorktree
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            else -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.auburn
+                                ), PorterDuff.Mode.MULTIPLY
                             )
                         }
-                        horParent.addView(txtViewChild)
-                        horParent.addView(btnChild)
-                        runOnUiThread { vertParent.addView(horParent) }
                     }
+                    btnChild.textSize = 30.0f
+                    btnChild.setOnClickListener {
+                        startActivity(
+                            Intent(
+                                this,
+                                AssignmentsActivity::class.java
+                            ).putExtra("CourseRefer", i.getString("Course"))
+                        )
+                    }
+                    horParent.addView(txtViewChild)
+                    horParent.addView(btnChild)
+                    runOnUiThread { vertParent.addView(horParent) }
                 }
             }
         }
