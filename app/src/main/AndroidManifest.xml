@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.browardschools.pbhshelper">
+    package="com.jaxhutton.pbhshelper">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,50 +17,50 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".TeacherActivity"
+            android:name="com.jaxhutton.pbhshelper.TeacherActivity"
             android:label="@string/teacher"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.browardschools.pbhshelper.MainActivity" />
+                android:value="com.jaxhutton.pbhshelper.MainActivity" />
         </activity>
         <activity
-            android:name=".AssignmentsActivity"
+            android:name="com.jaxhutton.pbhshelper.AssignmentsActivity"
             android:label="@string/title_activity_assignments"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".GradesActivity"
+            android:parentActivityName="com.jaxhutton.pbhshelper.GradesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.browardschools.pbhshelper.GradesActivity" />
+                android:value="com.jaxhutton.pbhshelper.GradesActivity" />
         </activity>
         <activity
-            android:name=".CalenderActivity"
+            android:name="com.jaxhutton.pbhshelper.CalenderActivity"
             android:label="@string/title_activity_calender"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.browardschools.pbhshelper.MainActivity" />
+                android:value="com.jaxhutton.pbhshelper.MainActivity" />
         </activity>
         <activity
-            android:name=".GradesActivity"
+            android:name="com.jaxhutton.pbhshelper.GradesActivity"
             android:label="@string/title_activity_grades"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.browardschools.pbhshelper.MainActivity" />
+                android:value="com.jaxhutton.pbhshelper.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name="com.jaxhutton.pbhshelper.MainActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.jaxhutton.pbhshelper.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LauncherActivity"
+            android:name="com.jaxhutton.pbhshelper.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
