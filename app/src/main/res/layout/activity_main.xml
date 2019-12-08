@@ -7,31 +7,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:text="@string/sign_out"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
-        android:text="@string/school_name"
-        android:textSize="18sp"
-        android:typeface="monospace"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="89dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="17dp"
+        android:contentDescription="@string/logo_descriptor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pbhslogo" />
 
     <TextView
         android:id="@+id/textView"
@@ -45,23 +30,12 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="89dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="17dp"
-        android:contentDescription="@string/logo_descriptor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pbhslogo" />
-
     <Button
         android:id="@+id/interchange"
         android:layout_width="200dp"
-        android:layout_height="90dp"
+        android:layout_height="75dp"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
         android:background="@android:drawable/btn_default"
         android:text="@string/grades"
@@ -73,9 +47,9 @@
     <Button
         android:id="@+id/calender"
         android:layout_width="200dp"
-        android:layout_height="90dp"
+        android:layout_height="75dp"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
         android:background="@android:drawable/btn_default"
         android:text="@string/calendar"
@@ -84,12 +58,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interchange" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="5dp"
+        android:maxLines="2"
+        android:text="@string/school_name"
+        android:textSize="18sp"
+        android:typeface="monospace"
+        app:autoSizeTextType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/counselor"
         android:layout_width="200dp"
-        android:layout_height="90dp"
+        android:layout_height="75dp"
         android:layout_marginStart="105dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
         android:background="@android:drawable/btn_default"
         android:text="@string/counselor"
@@ -97,5 +87,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calender" />
+
+    <TextView
+        android:id="@+id/logout"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="@string/sign_out"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/credits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="7dp"
+        android:fontFamily="@font/wire_one"
+        android:text="@string/credts"
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,11 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
+import android.view.MotionEvent
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -29,6 +33,7 @@ import java.util.*
 class GradesActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
+        var refreshing = false
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grades)
         setSupportActionBar(toolbar)
@@ -36,6 +41,19 @@ class GradesActivity : AppCompatActivity() {
         @SuppressLint("SimpleDateFormat")
         val formatter = SimpleDateFormat("MM/dd")
         val date: String = formatter.format(Date())
+        refresh_grades.background.setColorFilter(
+            resources.getColor(R.color.snow),
+            PorterDuff.Mode.SRC_ATOP
+        )
+        buttonEffect(refresh_grades)
+        refresh_grades.setOnClickListener {
+            if (!refreshing) {
+                finish()
+                overridePendingTransition(0, 0)
+                startActivity(Intent(this, GradesActivity::class.java))
+                overridePendingTransition(0, 0)
+            }
+        }
         findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE
 
         val mLayout = findViewById<CoordinatorLayout>(R.id.grades_layout)
@@ -52,6 +70,7 @@ class GradesActivity : AppCompatActivity() {
         }
         if (sessionId != "AssignmentsActivity") {
             findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.VISIBLE
+            refreshing = true
         }
         AsyncTask.execute {
             if (sessionId != "AssignmentsActivity") {
@@ -233,6 +252,7 @@ class GradesActivity : AppCompatActivity() {
                     horParent.addView(txtViewChild)
                     horParent.addView(btnChild)
                     runOnUiThread { vertParent.addView(horParent) }
+                    refreshing = false
                 }
             }
         }
@@ -246,6 +266,49 @@ class GradesActivity : AppCompatActivity() {
                     null
                 )
             )
+        }
+    }
+
+    fun buttonEffect(button: View) {
+        button.setOnTouchListener { v, event ->
+            val rotate = RotateAnimation(
+                0f,
+                180f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f,
+                Animation.RELATIVE_TO_SELF,
+                0.5f
+            )
+            rotate.duration = 500
+            rotate.repeatCount = Animation.INFINITE
+            rotate.interpolator = LinearInterpolator()
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    button.startAnimation(rotate)
+                    v.background.setColorFilter(
+                        resources.getColor(R.color.behr),
+                        PorterDuff.Mode.SRC_ATOP
+                    )
+                    v.invalidate()
+                }
+                MotionEvent.ACTION_CANCEL -> {
+                    button.clearAnimation()
+                    v.background.setColorFilter(
+                        resources.getColor(R.color.snow),
+                        PorterDuff.Mode.SRC_ATOP
+                    )
+                    v.invalidate()
+                }
+                MotionEvent.ACTION_UP -> {
+                    button.clearAnimation()
+                    v.background.setColorFilter(
+                        resources.getColor(R.color.snow),
+                        PorterDuff.Mode.SRC_ATOP
+                    )
+                    v.invalidate()
+                }
+            }
+            false
         }
     }
 }
