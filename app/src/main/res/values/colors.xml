@@ -14,4 +14,28 @@
     <color name="amurcorktree">#f3c13a</color>
     <color name="arylideyellow">#e9d66b</color>
     <color name="auburn">#a52a2a</color>
+    <color name="darkWater">#3F51B5</color>
+    <color name="blandBackground">#FFF3E0</color>
+
+
+    <color name="g100">#5FB45F</color>
+    <color name="g98">#74D674</color>
+    <color name="g96">#89EE89</color>
+    <color name="g94">#A4F5A4</color>
+    <color name="g92">#C1FFC1</color>
+    <color name="g90">#D1FAD1</color>
+
+
+    <color name="g88">#FFFFCE</color>
+    <color name="g86">#F8F890</color>
+    <color name="g84">#F8F86A</color>
+    <color name="g82">#FDFD46</color>
+    <color name="g80">#FDFD03</color>
+
+    <color name="g78">#FCC273</color>
+    <color name="g76">#FDB34E</color>
+    <color name="g74">#DD932E</color>
+    <color name="g72">#BB7516</color>
+    <color name="g70">#9E5D04</color>
+    <color name="gbelow">#a52a2a</color>
 </resources>

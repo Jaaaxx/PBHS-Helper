@@ -117,28 +117,106 @@ class GradesActivity : AppCompatActivity() {
                     } else {
                         btnChild.text = """${i.getString("Grade")}%"""
                         when {
+                            i.getString("Grade").toInt() >= 100 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g100
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 98 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g98
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 96 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g96
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 94 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g94
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 92 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g92
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
                             i.getString("Grade").toInt() >= 90 -> btnChild.background.setColorFilter(
                                 ContextCompat.getColor(
                                     this,
-                                    R.color.americangreen
+                                    R.color.g90
                                 ), PorterDuff.Mode.MULTIPLY
                             )
-                            i.getString("Grade").toInt() >= 85 -> btnChild.background.setColorFilter(
+                            i.getString("Grade").toInt() >= 88 -> btnChild.background.setColorFilter(
                                 ContextCompat.getColor(
                                     this,
-                                    R.color.arylideyellow
+                                    R.color.g88
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 86 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g86
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 84 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g84
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 82 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g82
                                 ), PorterDuff.Mode.MULTIPLY
                             )
                             i.getString("Grade").toInt() >= 80 -> btnChild.background.setColorFilter(
                                 ContextCompat.getColor(
                                     this,
-                                    R.color.amurcorktree
+                                    R.color.g80
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 78 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g78
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 76 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g76
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 74 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g74
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 72 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g72
+                                ), PorterDuff.Mode.MULTIPLY
+                            )
+                            i.getString("Grade").toInt() >= 70 -> btnChild.background.setColorFilter(
+                                ContextCompat.getColor(
+                                    this,
+                                    R.color.g70
                                 ), PorterDuff.Mode.MULTIPLY
                             )
                             else -> btnChild.background.setColorFilter(
                                 ContextCompat.getColor(
                                     this,
-                                    R.color.auburn
+                                    R.color.gbelow
                                 ), PorterDuff.Mode.MULTIPLY
                             )
                         }
@@ -161,7 +239,13 @@ class GradesActivity : AppCompatActivity() {
         when (datesDays[date]) {
             1 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.straw, null))
             0 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.water, null))
-            else -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.shiracha, null))
+            else -> mLayout.setBackgroundColor(
+                ResourcesCompat.getColor(
+                    resources,
+                    R.color.blandBackground,
+                    null
+                )
+            )
         }
     }
 }

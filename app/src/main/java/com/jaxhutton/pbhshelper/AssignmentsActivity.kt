@@ -100,30 +100,112 @@ class AssignmentsActivity : AppCompatActivity() {
                         valTV.textSize = 30.0f
                         try {
                             when {
-                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 90 || assignment.getString(
-                                    "Max"
-                                ).toInt() == 0 -> valTV.background.setColorFilter(
+                                (assignment.getString("Max").toInt()) == 0 -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
-                                        R.color.americangreen
+                                        R.color.darkWater
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
-                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 85 -> valTV.background.setColorFilter(
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 100 -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
-                                        R.color.arylideyellow
+                                        R.color.g100
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 98 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g98
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 96 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g96
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 94 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g94
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 92 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g92
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 90 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g90
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 88 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g88
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 86 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g86
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 84 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g84
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 82 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g82
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
                                 (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 80 -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
-                                        R.color.amurcorktree
+                                        R.color.g80
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 78 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g78
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 76 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g76
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 74 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g74
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 72 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g72
+                                    ), PorterDuff.Mode.MULTIPLY
+                                )
+                                (assignment.getString("Points").toFloat() / assignment.getString("Max").toFloat() * 100).toInt() >= 70 -> valTV.background.setColorFilter(
+                                    ContextCompat.getColor(
+                                        this,
+                                        R.color.g70
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
                                 else -> valTV.background.setColorFilter(
                                     ContextCompat.getColor(
                                         this,
-                                        R.color.auburn
+                                        R.color.gbelow
                                     ), PorterDuff.Mode.MULTIPLY
                                 )
                             }
@@ -186,7 +268,7 @@ class AssignmentsActivity : AppCompatActivity() {
             else -> mLayout.setBackgroundColor(
                 ResourcesCompat.getColor(
                     resources,
-                    R.color.shiracha,
+                    R.color.blandBackground,
                     null
                 )
             )

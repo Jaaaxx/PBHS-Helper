@@ -33,7 +33,13 @@ class MainActivity : AppCompatActivity() {
         when (datesDays[date]) {
             1 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.straw, null))
             0 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.water, null))
-            else -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.shiracha, null))
+            else -> mLayout.setBackgroundColor(
+                ResourcesCompat.getColor(
+                    resources,
+                    R.color.blandBackground,
+                    null
+                )
+            )
         }
 
         interchange.text = getString(R.string.grades)

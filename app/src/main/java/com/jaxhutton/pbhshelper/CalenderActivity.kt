@@ -42,7 +42,7 @@ class CalenderActivity : AppCompatActivity() {
             else -> mLayout.setBackgroundColor(
                 ResourcesCompat.getColor(
                     resources,
-                    R.color.shiracha,
+                    R.color.blandBackground,
                     null
                 )
             )
