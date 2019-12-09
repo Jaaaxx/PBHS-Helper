@@ -105,13 +105,14 @@
         android:id="@+id/credits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="7dp"
-        android:fontFamily="@font/wire_one"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/carrois_gothic_sc"
         android:text="@string/credts"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textSize="50sp"
+        android:textColor="@android:color/secondary_text_dark"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
