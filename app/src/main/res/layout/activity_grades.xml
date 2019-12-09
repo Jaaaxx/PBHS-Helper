@@ -26,6 +26,17 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/refresh" />
+
+            <TextView
+                android:id="@+id/lastUpdatedGrades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="sans-serif-medium"
+                android:textAlignment="textEnd"
+                android:textColor="@color/snow"
+                android:textSize="20sp" />
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

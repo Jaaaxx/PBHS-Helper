@@ -15,7 +15,9 @@ class LauncherActivity: AppCompatActivity() {
         val password : String? = settings.getString("pass", "")
         if (username != "" && password != "" && username != null && password != null)
             startActivity(Intent(this, MainActivity::class.java))
-        else
+        else {
+            getSharedPreferences("GradesSettings", 0).edit().clear().apply()
             startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 }

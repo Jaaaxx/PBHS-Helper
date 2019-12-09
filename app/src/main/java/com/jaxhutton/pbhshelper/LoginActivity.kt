@@ -14,6 +14,7 @@ import java.net.URL
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        getSharedPreferences("GradesSettings", 0).edit().clear().apply()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         findViewById<RelativeLayout>(R.id.loadingPanel).visibility = View.GONE

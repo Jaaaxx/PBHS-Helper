@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
         logout.setOnClickListener {
             getSharedPreferences("Login", 0).edit().clear().apply()
+            getSharedPreferences("GradesSettings", 0).edit().clear().apply()
             startActivity(Intent(this, LoginActivity::class.java))
         }
         counselor.setOnClickListener {
