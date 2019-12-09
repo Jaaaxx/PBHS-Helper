@@ -2,7 +2,7 @@
     <string name="app_name">Helper</string>
     <string name="logo_descriptor">PBHS Logo</string>
     <string name="district_school">Broward Schools</string>
-    <string name="school_name">Pompano Beach High School</string>
+    <string name="school_name">PBHS Helper</string>
     <string name="grades">Grades</string>
     <string name="login_label">Login to Broward Schools</string>
     <string name="username_hint">Username (06########)</string>
