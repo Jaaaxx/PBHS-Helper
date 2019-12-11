@@ -104,7 +104,17 @@ class GradesActivity : AppCompatActivity() {
             }
             val gradesText = getSharedPreferences("GradesSettings", 0).getString("rawGrades", "")
             runOnUiThread { vertParent.removeAllViews() }
-            val gradesJSON = JSONArray(gradesText)
+            var gradesJSON = JSONArray("[]")
+            try {
+                gradesJSON = JSONArray(gradesText)
+            } catch (e: Exception) {
+                Snackbar.make(
+                    findViewById(android.R.id.content),
+                    "Server error. Try again later!",
+                    Snackbar.LENGTH_LONG
+                ).show()
+                getSharedPreferences("GradesSettings", 0).edit().clear().apply()
+            }
             val allCourses = ArrayList<JSONObject>()
             for (i in 0 until gradesJSON.length())
                 allCourses.add(gradesJSON.getJSONObject(i))
