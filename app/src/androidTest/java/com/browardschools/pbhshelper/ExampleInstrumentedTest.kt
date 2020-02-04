@@ -1,4 +1,4 @@
-package com.jaxhutton.pbhshelper
+package com.browardschools.pbhshelper
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
@@ -17,6 +17,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.jaxhutton.pbhshelper", appContext.packageName)
+        assertEquals("com.browardschools.pbhshelper", appContext.packageName)
     }
 }

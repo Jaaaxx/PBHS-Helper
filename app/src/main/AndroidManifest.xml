@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.jaxhutton.pbhshelper">
+    package="com.browardschools.pbhshelper">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -17,50 +17,50 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name="com.jaxhutton.pbhshelper.TeacherActivity"
+            android:name="com.browardschools.pbhshelper.TeacherActivity"
             android:label="@string/teacher"
-            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
+            android:parentActivityName="com.browardschools.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jaxhutton.pbhshelper.MainActivity" />
+                android:value="com.browardschools.pbhshelper.MainActivity" />
         </activity>
         <activity
-            android:name="com.jaxhutton.pbhshelper.AssignmentsActivity"
+            android:name="com.browardschools.pbhshelper.AssignmentsActivity"
             android:label="@string/title_activity_assignments"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.jaxhutton.pbhshelper.GradesActivity"
+            android:parentActivityName="com.browardschools.pbhshelper.GradesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jaxhutton.pbhshelper.GradesActivity" />
+                android:value="com.browardschools.pbhshelper.GradesActivity" />
         </activity>
         <activity
-            android:name="com.jaxhutton.pbhshelper.CalenderActivity"
+            android:name="com.browardschools.pbhshelper.CalenderActivity"
             android:label="@string/title_activity_calender"
-            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
+            android:parentActivityName="com.browardschools.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jaxhutton.pbhshelper.MainActivity" />
+                android:value="com.browardschools.pbhshelper.MainActivity" />
         </activity>
         <activity
-            android:name="com.jaxhutton.pbhshelper.GradesActivity"
+            android:name="com.browardschools.pbhshelper.GradesActivity"
             android:label="@string/title_activity_grades"
             android:configChanges="orientation|screenSize"
-            android:parentActivityName="com.jaxhutton.pbhshelper.MainActivity"
+            android:parentActivityName="com.browardschools.pbhshelper.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jaxhutton.pbhshelper.MainActivity" />
+                android:value="com.browardschools.pbhshelper.MainActivity" />
         </activity>
-        <activity android:name="com.jaxhutton.pbhshelper.MainActivity" />
+        <activity android:name="com.browardschools.pbhshelper.MainActivity" />
         <activity
-            android:name="com.jaxhutton.pbhshelper.LoginActivity"
+            android:name="com.browardschools.pbhshelper.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.jaxhutton.pbhshelper.LauncherActivity"
+            android:name="com.browardschools.pbhshelper.LauncherActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
