@@ -5,9 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.MotionEventCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import java.net.URL
@@ -26,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         val formatter = SimpleDateFormat("MM/dd")
         val date: String = formatter.format(Date())
         val mLayout = findViewById<ConstraintLayout>(R.id.main_layout)
+        val menu = findViewById<ImageView>(R.id.menu)
+        menu.x = 1500f
+        menu.visibility = View.VISIBLE
+        // menu.x = 950f
         val settings = getSharedPreferences("Login", 0)
         val username = settings.getString("user", "")
         val password = settings.getString("pass", "")
@@ -90,4 +98,41 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {}
+    var x1 = 0f
+    var x2 = 0f
+    var locked = false
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+
+        val action: Int = MotionEventCompat.getActionMasked(event)
+
+        when (action) {
+            MotionEvent.ACTION_DOWN -> {
+                x1 = event.x
+            }
+            MotionEvent.ACTION_MOVE -> {
+                // || event.x > x1
+                if ((menu.x > 950f && !locked)) {
+                    x2 = event.x
+                    menu.x -= x1 - x2
+                    x1 = x2
+                }
+            }
+            MotionEvent.ACTION_UP -> {
+                if (menu.x > 950f) {
+                    locked = false
+                    return false
+                }
+                if (locked && event.x < 925f) {
+                    menu.x = 1500f
+                    locked = false
+                }
+                if (menu.x < 950f) {
+                    menu.x = 950f
+                    locked = true
+                }
+                return false
+            }
+        }
+        return true
+    }
 }
