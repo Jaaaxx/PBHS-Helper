@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
-        <item>@font/arbutus</item>
-        <item>@font/carrois_gothic_sc</item>
-        <item>@font/lilita_one</item>
-        <item>@font/wire_one</item>
+        <item>@font/imprima</item>
     </array>
 </resources>

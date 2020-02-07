@@ -19,7 +19,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_grades.*
 import kotlinx.android.synthetic.main.content_grades.*
@@ -272,17 +271,6 @@ class GradesActivity : AppCompatActivity() {
                 runOnUiThread { vertParent.addView(horParent) }
                 refreshing = false
             }
-        }
-        when (datesDays[date]) {
-            1 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.straw, null))
-            0 -> mLayout.setBackgroundColor(ResourcesCompat.getColor(resources, R.color.water, null))
-            else -> mLayout.setBackgroundColor(
-                ResourcesCompat.getColor(
-                    resources,
-                    R.color.blandBackground,
-                    null
-                )
-            )
         }
     }
 

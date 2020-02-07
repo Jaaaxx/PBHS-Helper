@@ -13,7 +13,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_assignments.*
 import kotlinx.android.synthetic.main.content_assignments.*
@@ -247,31 +246,6 @@ class AssignmentsActivity : AppCompatActivity() {
                 "Please try again.",
                 Snackbar.LENGTH_SHORT
             ).show()
-        }
-
-
-        when (datesDays[date]) {
-            1 -> mLayout.setBackgroundColor(
-                ResourcesCompat.getColor(
-                    resources,
-                    R.color.straw,
-                    null
-                )
-            )
-            0 -> mLayout.setBackgroundColor(
-                ResourcesCompat.getColor(
-                    resources,
-                    R.color.water,
-                    null
-                )
-            )
-            else -> mLayout.setBackgroundColor(
-                ResourcesCompat.getColor(
-                    resources,
-                    R.color.blandBackground,
-                    null
-                )
-            )
         }
     }
 

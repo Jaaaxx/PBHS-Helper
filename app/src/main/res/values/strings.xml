@@ -18,6 +18,7 @@
     <string name="title_activity_calender">PBHS Calender</string>
     <string name="title_activity_assignments">Class Assignments</string>
     <string name="null_val" />
+    <string name="menu">Menu</string>
     <string name="no_grades_assigned">No assignments have been assigned.</string>
     <string name="teacher">Teacher</string>
     <string name="credts">Created by Jax Hutton</string>

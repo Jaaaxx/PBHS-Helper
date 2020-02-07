@@ -9,6 +9,17 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/menu"
+        android:contentDescription="@string/menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="311dp"
+        tools:visibility="gone" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="89dp"
         android:layout_height="92dp"
@@ -20,15 +31,16 @@
         app:srcCompat="@drawable/pbhslogo" />
 
     <Button
-        android:id="@+id/interchange"
+        android:id="@+id/grades"
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginStart="105dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@drawable/ic_login"
+        android:fontFamily="@font/imprima"
         android:text="@string/grades"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -40,12 +52,13 @@
         android:layout_marginStart="105dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@drawable/ic_login"
+        android:fontFamily="@font/imprima"
         android:text="@string/calendar"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/interchange" />
+        app:layout_constraintTop_toBottomOf="@+id/grades" />
 
     <TextView
         android:id="@+id/textView2"
@@ -73,9 +86,10 @@
         android:layout_marginStart="105dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="105dp"
-        android:background="@android:drawable/btn_default"
+        android:background="@drawable/ic_login"
+        android:fontFamily="@font/imprima"
         android:text="@string/counselor"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calender" />
@@ -86,6 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="30dp"
+        android:fontFamily="@font/imprima"
         android:text="@string/sign_out"
         android:textAllCaps="false"
         android:textSize="18sp"
@@ -98,7 +113,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="@font/carrois_gothic_sc"
+        android:fontFamily="@font/imprima"
         android:text="@string/credts"
         android:textAlignment="viewStart"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
